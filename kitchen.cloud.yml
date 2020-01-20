@@ -6,8 +6,13 @@ driver:
   instance_type: t2.micro
   #deploy to devopsstudent subnet
   subnet_id: subnet-0e9b6138ff1ce18f2
-  bind_ip: true
+  #bind_ip: true
+  aws_ssh_key_id: sam-watson-eng-48-test
   associate_public_ip: true
+
+transport:
+  ssh_key: ~/.ssh/sam-watson-eng-48-test.pem
+
 
 
 
