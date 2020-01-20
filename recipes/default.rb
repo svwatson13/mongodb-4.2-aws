@@ -3,8 +3,9 @@
 # Recipe:: default
 #
 # Copyright:: 2020, The Authors, All Rights Reserved.
-include_recipe 'apt'
 include_recipe 'sc-mongodb'
+include_recipe 'apt'
+
 
 
 template '/etc/mongod.conf' do
@@ -20,15 +21,5 @@ template "/lib/systemd/system/mongod.service" do
 end
 
 service 'mongod' do
-  action :enable
+  action [ :enable, :start ]
 end
-service 'mongod' do
-  action :start
-end
-
-# service 'mongod' do
-#   action :enable
-# end
-# service 'mongod' do
-#   action :start
-# end
